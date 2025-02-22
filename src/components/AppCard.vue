@@ -1,8 +1,9 @@
 <template>
 	<div class="card">
 		<div class="card-body">
-			<h5 class="card-title">Card title</h5>
-			<p class="card-text">
+			<h5 class="card-title red">Card title</h5>
+			<p class="card-text blue">
+				<!-- :class="classes.red" -->
 				Some quick example text to build on the card title and make up the bulk
 				of the card's content.
 			</p>
@@ -12,13 +13,35 @@
 </template>
 
 <script>
-console.log('AppCard module()');
+import { ref } from 'vue';
+
+// console.log('AppCard module()');
 export default {
 	setup() {
-		console.log('AppCard setup()');
-		return {};
+		// const style = userCssModule();
+		// console.log('AppCard setup()');
+		const color = ref('blue');
+		return {
+			color,
+		};
 	},
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style>
+.blue {
+	color: v-bind(color) !important;
+}
+</style>
+
+<!-- <style module="classes">
+.red {
+	color: red !important;
+}
+</style> -->
+
+<!-- <style scoped>
+.red {
+	color: red !important;
+}
+</style> -->
